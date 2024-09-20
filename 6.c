@@ -1,3 +1,11 @@
+/*
+============================================================================
+Name : 6.c
+Author : Naman Samant
+Description : Write a simple program to create three threads.
+Date: 20th Sep, 2024.
+============================================================================
+*/
 #include <stdio.h>
 #include <pthread.h>
 #include <stdint.h>

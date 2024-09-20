@@ -1,3 +1,11 @@
+/*
+============================================================================
+Name : 7.c
+Author : Naman Samant
+Description : Write a simple program to print the created thread ids.
+Date: 20th Sep, 2024.
+============================================================================
+*/
 #include <stdio.h>
 #include <pthread.h>
 #include <stdint.h>
