@@ -28,7 +28,7 @@ int main() {
     sa.sa_flags = 0;
     sigaction(SIGPROF, &sa, NULL);
     while (1) {
-        pause();
+        for (int i = 0; i < 1000; i++);
     }
     return 0;
 }

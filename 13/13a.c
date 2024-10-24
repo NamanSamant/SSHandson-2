@@ -9,8 +9,14 @@ Date: 21st Sep, 2024.
 #include <stdio.h>
 #include <signal.h>
 #include <unistd.h>
+#include <stdlib.h>
 void signal_handler(int sig) {
-    printf("Caught signal %d\n", sig);
+    if (sig == SIGINT) {
+        printf("Caught SIGINT, exiting...\n");
+        exit(0); 
+    } else {
+        printf("Caught signal %d\n", sig);
+    }
 }
 
 int main() {

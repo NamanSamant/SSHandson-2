@@ -17,8 +17,7 @@ void sigsegv_handler(int sig)
 }
 int main() {
       __sighandler_t signalStatus;
-
-    signalStatus = signal(SIGSEGV, (void *)callback);
+    signalStatus = signal(SIGSEGV, (void *)sigsegv_handler);
     if (signalStatus == SIG_ERR)
         perror("Error while assigning signal handler!");
     else
