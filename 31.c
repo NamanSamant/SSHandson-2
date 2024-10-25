@@ -31,7 +31,7 @@ int main() {
         sem_unlink(binary_semaphore_name);
         exit(EXIT_FAILURE);
     }
-    printf("Counting semaphore created and initialized to 10.\n");
+    printf("Counting semaphore created and initialized to 5.\n");
     sem_close(binary_sem);
     sem_close(counting_sem);
     sem_unlink(binary_semaphore_name);

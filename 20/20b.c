@@ -11,7 +11,7 @@ Date: 21st Sep, 2024.
 #include <fcntl.h>
 #include <unistd.h>
 int main() {
-    const char *fifoPath = "my_fifo";
+    const char *fifoPath = "./myfifo";
     char buffer[100];
     int fd = open(fifoPath, O_RDONLY);
     if (fd == -1) {

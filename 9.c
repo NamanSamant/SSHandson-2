@@ -11,19 +11,19 @@ Date: 20th Sep, 2024.
 #include <unistd.h>
 
 void handle_reset(int signalId) {
-    printf("\nHere SIGINT is getting reset to its default action\n");
     signal(SIGINT, SIG_DFL);
 }
 
 int main() {
     signal(SIGINT, SIG_IGN);
-    printf("Ignored SIGINT\n");
-    sleep(2);
+    printf("SIGINT will be ignored\n");
+    sleep(4);
     signal(SIGINT, handle_reset);
-    printf("\nSIGINT reset, press Ctrl + C\n");
+    printf("\nPress Ctrl + C to restore the function of SIGINT\n");
+    sleep(3);
+    printf("\nSIGINT's function is now restored, press Ctrl + C\n");
     while (1) {
         sleep(1);
     }
-
     return 0;
 }

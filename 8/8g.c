@@ -14,13 +14,14 @@ Date: 20th Sep, 2024.
 #include <sys/types.h>
 void setitimer_handler(int sig) {
     printf("Caught SIGPROF (setitimer)\n");
+    _exit(0);
 }
 int main() {
     struct sigaction sa;
     struct itimerval itv;
     itv.it_interval.tv_sec = 5;
     itv.it_interval.tv_usec = 0;
-    itv.it_value.tv_sec = 5;
+    itv.it_value.tv_sec = 0;
     itv.it_value.tv_usec = 0;
     setitimer(ITIMER_PROF, &itv, NULL);
     sa.sa_handler = setitimer_handler;

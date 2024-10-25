@@ -27,11 +27,19 @@ int main() {
     if (pid > 0) {  
         close(pipefds[0]);
         printf("Parent: Writing to the pipe: %s\n", write_msg);
-        write(pipefds[1], write_msg, strlen(write_msg) + 1);
+        if (write(pipefds[1], write_msg, strlen(write_msg) + 1) == -1) {
+            perror("Write to pipe failed");
+            close(pipefds[1]);
+            return 1;
+        }
         close(pipefds[1]);  
     } else {  
-        close(pipefds[1]);  
-        read(pipefds[0], read_msg, sizeof(read_msg));
+        close(pipefds[1]);
+        if (read(pipefds[0], read_msg, sizeof(read_msg)) == -1) {
+            perror("Read from pipe failed");
+            close(pipefds[0]);
+            return 1;
+        }
         printf("Child: Read from the pipe: %s\n", read_msg);
         close(pipefds[0]); 
     }

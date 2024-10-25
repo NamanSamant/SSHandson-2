@@ -27,7 +27,7 @@ int main() {
     }
     int pipe_size = fpathconf(pipefd[0], _PC_PIPE_BUF);
     if (pipe_size == -1) {
-        perror("fcntl");
+        perror("fpathconf");
         exit(EXIT_FAILURE);
     }
     printf("Size of a pipe (circular buffer): %d bytes\n", pipe_size);

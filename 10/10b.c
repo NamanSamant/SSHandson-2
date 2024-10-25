@@ -11,7 +11,7 @@ Date: 20th Sep, 2024.
 #include <signal.h>
 #include <unistd.h>
 void sigint_handler(int sig) {
-    printf("Caught SIGINT\n");
+    printf("\nCaught SIGINT\n");
     _exit(0);
 }
 int main() {

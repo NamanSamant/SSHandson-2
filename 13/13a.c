@@ -10,23 +10,31 @@ Date: 21st Sep, 2024.
 #include <signal.h>
 #include <unistd.h>
 #include <stdlib.h>
-void signal_handler(int sig) {
-    if (sig == SIGINT) {
-        printf("Caught SIGINT, exiting...\n");
-        exit(0); 
-    } else {
-        printf("Caught signal %d\n", sig);
+/*volatile sig_atomic_t continue_received = 0;
+void signal_handler(int sig){
+        if (sig == SIGCONT) {
+        continue_received = 1; 
     }
+}*/
+void signal_handler(int sig){
+printf("\nSIGSTOP signal received\n");
+_exit(0);
 }
 
 int main() {
-    signal(SIGINT, signal_handler);
+    /*signal(SIGCONT, signal_handler);*/
+    signal(SIGSTOP, signal_handler);
+    printf("Process PID: %d\n", getpid());
     printf("Waiting for signals (try sending SIGSTOP)...\n");
     //to keep the process alive
     while (1) {
-        pause();  
+        pause();
+        /*if (continue_received) {
+            printf("Exiting after handling SIGCONT.\n");
+            exit(0);  // Explicitly exit after handling SIGCONT
+        }*/
     }
-
+    
     return 0;
 }
 

@@ -22,11 +22,11 @@ int main() {
         printf("Child: My PID is %d. My Parent's PID is %d\n", getpid(), getppid());
         printf("Child: Sending SIGKILL signal to Parent (PID: %d)\n", getppid());
         kill(getppid(), SIGKILL);
-        sleep(1);
+        sleep(3);
         
         printf("Child: After killing parent, my new Parent's PID is %d\n", getppid());
         printf("Child: I am now an orphan and adopted by init/systemd.\n");
-        sleep(1);
+        sleep(3);
     }
     else{
         printf("Parent: My PID is %d. My Child's PID is %d\n", getpid(), pid);

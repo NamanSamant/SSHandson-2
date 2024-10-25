@@ -1,6 +1,6 @@
 /*
 ============================================================================
-Name : 33b.c
+Name : 33-s.c
 Author : Naman Samant
 Description : Write a program to communicate between two machines using socket.
 Date: 21st Sep, 2024.

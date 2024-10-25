@@ -23,6 +23,12 @@ int main() {
     } else {
         perror("getrlimit");
     }
-
+    if (getrlimit(resource, &limit) == 0) {
+            printf("Resource: %d\n", resource);
+            printf("Soft limit: %ld\n", limit.rlim_cur);
+            printf("Hard limit: %ld\n\n", limit.rlim_max);
+    } else {
+            perror("getrlimit");
+    }
     return 0;
 }
